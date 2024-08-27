@@ -1,0 +1,21 @@
+
+spring.application.name=accounts
+
+
+# Data base details
+spring.datasource.url=jdbc:mysql://localhost:3306/spring_boot
+spring.datasource.username=root
+spring.datasource.password=Mysql@17
+
+#Spring data jpa details
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.dialect=org.hibernate.dialect.Mysql5Dialect
+
+
+#mandatory if auto initiliazation is required
+spring.sql.init.mode=always
+
+
+spring.config.import = application_prod.properties,application_qa.properties
+spring.profiles.active=qa

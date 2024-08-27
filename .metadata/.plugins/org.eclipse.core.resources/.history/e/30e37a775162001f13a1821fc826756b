@@ -1,0 +1,13 @@
+spring.application.name=configserver
+
+
+server.port=8071
+
+spring.profiles.active=native
+
+#spring.cloud.config.server.native.search-locations=classpath:/config
+
+#file system
+spring.cloud.config.server.native.search-locations=file:///Users/tanmaykumar/Documents/workspace-spring-tool-suite-4-4.24.0.RELEASE/udemy/configserver/src/main/resources/config
+
+

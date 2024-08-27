@@ -1,0 +1,5 @@
+package com.micro.cards.service.impl;
+
+public class CardsServiceImpl {
+
+}

@@ -1,0 +1,5 @@
+package com.micro.cards.exception;
+
+public class GlobalExceptionHandler {
+
+}

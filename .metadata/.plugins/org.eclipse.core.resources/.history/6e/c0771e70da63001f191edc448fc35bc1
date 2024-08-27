@@ -1,0 +1,25 @@
+package com.micro.accounts.service.impl;
+
+import org.springframework.stereotype.Repository;
+
+import com.micro.accounts.dto.CustomerDetailsDto;
+import com.micro.accounts.repository.AccountSRepository;
+import com.micro.accounts.service.ICustomerService;
+
+import lombok.AllArgsConstructor;
+
+
+@Repository
+@AllArgsConstructor
+public class CustomerServiceImpl implements ICustomerService{
+	
+	private AccountSRepository accountRepository;
+	private Customer
+
+	@Override
+	public CustomerDetailsDto fetchCustomerDetails(String mobileNumber) {
+		
+		return null;
+	}
+
+}

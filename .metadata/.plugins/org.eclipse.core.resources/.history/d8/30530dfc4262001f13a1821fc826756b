@@ -1,0 +1,8 @@
+
+spring.config.activate.on-profile=qa
+
+
+accounts.message=This is from Qa Environment
+accounts.contactDetails.name=Tanmay
+accounts.contactDetails.email=tanmaykumar950@gmail.com
+accounts.onCallSupport=9507373173,7004311384

@@ -1,0 +1,74 @@
+package com.micro.accounts.service.impl;
+
+import java.time.LocalDateTime;
+import java.util.Optional;
+import java.util.Random;
+
+import org.springframework.stereotype.Service;
+
+import com.micro.accounts.constants.AccountsConstants;
+import com.micro.accounts.dto.CustomerDto;
+import com.micro.accounts.entity.Accounts;
+import com.micro.accounts.entity.Customer;
+import com.micro.accounts.exception.CustomerAlreadyExistsException;
+import com.micro.accounts.mapper.CustomerMapper;
+import com.micro.accounts.repository.AccountSRepository;
+import com.micro.accounts.repository.CustomerRepository;
+import com.micro.accounts.service.IAccountsService;
+
+import lombok.AllArgsConstructor;
+
+@Service
+@AllArgsConstructor // if constructor no need of AUtowired keyword
+public class AccountServiceImpl implements IAccountsService{
+	
+	private AccountSRepository accountSRepository;
+	private CustomerRepository customerRepository;
+
+	@Override
+	public void createAccount(CustomerDto customerDto) {
+		Customer customer = CustomerMapper.mapToCustomer(customerDto, new Customer());
+		Optional<Customer> optionalCustomer = customerRepository.findByMobileNumber(customer.getMobileNumber());
+		optionalCustomer.ifPresent(  
+				item ->  {
+					throw new CustomerAlreadyExistsException("Customer already present with mobile number "+item.getMobileNumber());
+				}
+				);
+		customer.setCreatedAt(LocalDateTime.now());
+		customer.setCreatedBy("Ananymous");
+		Customer saveCustomer = customerRepository.save(customer);
+		accountSRepository.save(createNewAccount(saveCustomer));
+		
+	}
+	
+	private Accounts createNewAccount(Customer customer) {
+		Accounts newAccount = new Accounts();
+		newAccount.setCustomerId(customer.getCustomerId());
+		
+		long randomActNumber = 1000000000L + new Random().nextInt(900000000);
+		newAccount.setAccountNumber(randomActNumber);		
+		newAccount.setAccountType(AccountsConstants.SAVINGS);
+		newAccount.setBranchAddress(AccountsConstants.ADDRESS);
+		newAccount.setCreatedAt(LocalDateTime.now());
+		newAccount.setCreatedBy("Ananymous");
+		return newAccount;
+	}
+
+	@Override
+	public CustomerDto fetchAccount(String mobileNumber) {
+			Optional<Customer>optionalCustomer =  customerRepository.findByMobileNumber(mobileNumber);
+			
+			long customerId = 0;
+			if(optionalCustomer.isPresent()) {
+				customerId=optionalCustomer.get().getCustomerId();
+
+			}
+			
+			Optional<Accounts> optionalAccount = accountSRepository.findById(customerId);
+			
+			CustomerDto customerDto = CustomerMapper.map
+			
+		return null;
+	}
+
+}

@@ -1,0 +1,5 @@
+package com.micro.accounts.mapper;
+
+public class CustomerMapper {
+
+}

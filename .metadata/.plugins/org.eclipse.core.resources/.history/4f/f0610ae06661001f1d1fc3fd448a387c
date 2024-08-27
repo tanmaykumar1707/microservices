@@ -1,0 +1,9 @@
+package com.micro.accounts.exception;
+
+public class ResouceNotFoundException extends RuntimeException{
+	
+	public ResouceNotFoundException(String message){
+		super(message);
+	}
+
+}

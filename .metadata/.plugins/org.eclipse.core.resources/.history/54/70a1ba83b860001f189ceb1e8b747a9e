@@ -1,0 +1,5 @@
+package com.micro.accounts.repository;
+
+public class CustomerRepository {
+
+}

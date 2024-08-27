@@ -1,0 +1,56 @@
+spring.application.name=cards
+
+server.port=9000
+
+# Data base details
+spring.datasource.url=jdbc:mysql://localhost:3306/spring_boot
+spring.datasource.username=root
+spring.datasource.password=Mysql@17
+
+#Spring data jpa details
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.dialect=org.hibernate.dialect.Mysql5Dialect
+
+
+#mandatory if auto initiliazation is required
+spring.sql.init.mode=always
+
+management.endpoints.web.exposure.include=*
+#we can also exclude with exclude props
+
+spring.rabbitmq.host=localhost
+spring.rabbitmq.port=5672
+spring.rabbitmq.username=guest
+spring.rabbitmq.password=guest
+
+spring.profiles.active=qa
+
+spring.config.import=optional:configserver:http://localhost:8071/
+
+info.app.name=cards app
+info.app.description=cards App
+info.app.version=1.0.0
+info.app.owner=Tanmay Kumar
+
+
+# Specifies the default Eureka server URL for the client to register with
+#eureka.client.service-url.default-zone=http://localhost:8070/eureka/
+eureka.client.serviceUrl.defaultZone= http://localhost:8070/eureka/
+# Enables the shutdown endpoint to gracefully shut down the application
+management.endpoint.shutdown.enabled=true
+
+# Exposes the shutdown endpoint over web interfaces (This is correct for Spring Boot 2.x and above)
+#management.endpoints.web.exposure.include=shutdown
+
+# Enables the `/info` endpoint to display environment properties
+management.info.env.enabled=true
+
+# Configures Eureka to prefer using the IP address rather than hostname
+eureka.instance.preferIpAddress=true
+
+# Instructs the Eureka client to fetch the registry of other services
+eureka.client.fetchRegistry=true
+
+# Registers the current service instance with the Eureka server
+eureka.client.registerWithEureka=true

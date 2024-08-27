@@ -1,0 +1,16 @@
+package com.micro.accounts.service.client;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.micro.accounts.dto.CardsDto;
+import com.micro.accounts.dto.LoansDto;
+
+
+@FeignClient("loans")
+public interface LoansFeignClient {
+	
+	 public ResponseEntity<LoansDto> fetchCardDetails(@RequestParam String mobileNumber) ;
+
+}

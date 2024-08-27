@@ -1,0 +1,19 @@
+services:
+	accounts:
+		image: "tanmaybhadani/accounts:v1"
+		containter_name : account-ms
+		ports:
+			- "8080:8080"
+		deploy:
+			resources:
+				limits:
+					memory: 700m
+	accounts:
+		image: "tanmaybhadani/accounts:v1"
+		containter_name : account-ms
+		ports:
+			- "8080:8080"
+		eploy:
+			resources:
+				limits:
+					memory: 700m

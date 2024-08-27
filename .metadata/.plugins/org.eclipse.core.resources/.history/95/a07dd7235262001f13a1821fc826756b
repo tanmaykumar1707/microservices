@@ -1,0 +1,23 @@
+spring.application.name=configserver
+
+
+server.port=8071
+
+#spring.profiles.active=nativ
+
+spring.profiles.active=git
+
+#spring.cloud.config.server.native.search-locations=classpath:/config
+
+#file system
+#spring.cloud.config.server.native.search-locations=file:///Users/tanmaykumar/Documents/workspace-spring-tool-suite-4-4.24.0.RELEASE/udemy/configserver/src/main/resources/config
+
+spring.cloud.config.server.git.uri=https://github.com/tanmaykumar1707/microservices-configserver.git
+spring.cloud.config.server.git.default-label=main
+spring.cloud.config.server.git.timeout=5
+spring.cloud.config.server.git.clone-on-start=true
+spring.cloud.config.server.git.force-pull=true
+
+
+
+
